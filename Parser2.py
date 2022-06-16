@@ -1,7 +1,6 @@
 import pdfplumber
 import string, sys
-#file = 'declaration-of-performance_wall180.pdf'
-def parser2(file, data):
+def parser(file, data):
 
     data.setdefault('Nom fichier', []).append(str(file))
     dico_of_dop = {'Manufacturor':'Fabricant',
@@ -39,7 +38,6 @@ def parser2(file, data):
                 result = (text.split(key)[-1].strip())
                 of_head_csv = dico_of_dop[key]
                 data.setdefault(of_head_csv, []).append(str(result))    
-            
+    data.setdefault('Nom de produit' , []).append(str(my_text_list[0]))       
     return data
-
     
